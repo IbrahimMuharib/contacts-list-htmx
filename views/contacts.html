@@ -4,7 +4,15 @@
 </div>
 
 {{end}} {{block "contact" .}}
-<div>Name: <span>{{.Name}}</span> Email: <span>{{.Email}}</span></div>
+<div>
+  Name: <span>{{.Name}}</span> Email: <span>{{.Email}}</span>
+  <object
+    type="image/svg+xml"
+    data="/images/trash.svg"
+    width="20"
+    height="20"
+  ></object>
+</div>
 {{end}} {{block "oob-contact" . }}
 <div id="contacts" hx-swap-oob="afterbegin">{{template "contact" .}}</div>
 {{end}}

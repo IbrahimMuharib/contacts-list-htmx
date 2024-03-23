@@ -13,6 +13,7 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Static("/css", "css")
 	e.Static("/js", "js")
+	e.Static("/images", "images")
 
 	e.Renderer = types.NewTemplate()
 
