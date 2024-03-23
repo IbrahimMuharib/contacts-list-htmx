@@ -1,18 +1,43 @@
 {{block "contacts" .}}
-<div class="centered-div" id="contacts">
+<div
+  class="centered-div"
+  style="display: flex; justify-content: space-between; flex-direction: column"
+  id="contacts"
+>
+  <div
+    style="
+      width: 35%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    "
+  >
+    <div class="text-box">Name</div>
+    <div class="text-box">Email</div>
+    <div>Delete</div>
+  </div>
+  <hr />
   {{range .Contacts}} {{template "contact" .}}{{end}}
 </div>
 
 {{end}} {{block "contact" .}}
-<div>
-  Name: <span>{{.Name}}</span> Email: <span>{{.Email}}</span>
-  <object
-    type="image/svg+xml"
-    data="/images/trash.svg"
-    width="20"
-    height="20"
-  ></object>
+<div
+  id="contact-{{.Id}}"
+  class="centered-div contact"
+  style="
+    width: 35%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  "
+>
+  <div class="text-box">{{.Name}}</div>
+  <div class="text-box">{{.Email}}</div>
+  {{template "trash-icon" .}}
+  <div id="indicator-{{.Id}}" class="htmx-indicator">
+    <img src="/images/bars.svg" alt="loading" style="width: 1rem" />
+  </div>
 </div>
 {{end}} {{block "oob-contact" . }}
-<div id="contacts" hx-swap-oob="afterbegin">{{template "contact" .}}</div>
+<div id="contacts" hx-swap-oob="beforeend">{{template "contact" .}}</div>
 {{end}}

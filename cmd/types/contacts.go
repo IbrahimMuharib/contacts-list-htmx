@@ -1,12 +1,16 @@
 package types
 
+var id = -1
+
 type Contact struct {
 	Name  string
 	Email string
+	Id    int
 }
 
 func NewContact(name, email string) Contact {
-	return Contact{Name: name, Email: email}
+	id++
+	return Contact{Name: name, Email: email, Id: id}
 }
 
 func (d Data) HasEmail(email string) bool {
@@ -16,6 +20,15 @@ func (d Data) HasEmail(email string) bool {
 		}
 	}
 	return false
+}
+
+func (d Data) IndexOf(id int) int {
+	for i, contact := range d.Contacts {
+		if contact.Id == id {
+			return i
+		}
+	}
+	return -1
 }
 
 type Data struct {

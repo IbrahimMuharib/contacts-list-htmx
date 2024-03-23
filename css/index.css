@@ -11,6 +11,10 @@
   opacity: 1;
 }
 
+.contact.htmx-swapping {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
 body,
 html {
   height: 100%;
@@ -18,24 +22,24 @@ html {
   margin: 0;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Horizontally center */
-  align-items: center; /* Vertically center */
-  height: 100vh;
-  padding-top: 20px; /* Add top padding for margin */
-  box-sizing: border-box; /* Include padding in height calculation */
-}
-
 .centered-div {
   text-align: center;
   border: 1px solid #ccc;
   padding: 20px;
   font-size: x-large;
+  justify-items: center;
+}
+
+.text-box {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 40%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .pretty-form {
-  max-width: 400px;
+  max-width: 33%;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -74,4 +78,12 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+.trash-icon {
+  fill: black;
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 1rem;
 }
